@@ -1,15 +1,12 @@
 import Hashtag from "../model/hashtag.js";
+import crudRepository from "./crud-repository.js";
 
-class hashtagRepository {
-  async create(data) {
-    try {
-      const hashtag = await Hashtag.create(data);
-      return hashtag;
-    } catch (error) {
-      console.log(error);
-      throw error;
-    }
+class hashtagRepository extends crudRepository {
+
+  constructor() {
+    super(Hashtag);
   }
+
 
   async bulkCreate(data) {
     try {
